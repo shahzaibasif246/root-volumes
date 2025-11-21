@@ -82,18 +82,27 @@ stele_area_dict = get_dict(reimann_sum('stele_area'), 'stele_area_volume')
 pith_area_dict = get_dict(reimann_sum('pith_area'), 'pith_area_volume')
 
 print(root_area_dict)
-print(stele_area_dict)
-print(pith_area_dict)
+#print(stele_area_dict)
+#print(pith_area_dict)
 root_samples, root_total_volumes = get_samples_names(root_area_dict)
-root_samples, stele_total_volumes = get_samples_names(stele_area_dict)
-root_samples, pith_total_volumes = get_samples_names(pith_area_dict)
+#root_samples, stele_total_volumes = get_samples_names(stele_area_dict)
+#root_samples, pith_total_volumes = get_samples_names(pith_area_dict)
 
 
-bar_graph(1, root_samples, root_total_volumes)
-bar_graph(2, root_samples, stele_total_volumes)
-bar_graph(3, root_samples, pith_total_volumes)
+final_volumes_df = pd.read_excel('final_volumes.xlsx')
+final_volumes_df['dinoline_volumes'] = root_total_volumes
 
-plt.show()
+print(final_volumes_df)
+final_volumes_df.to_excel('final_volumes.xlsx', index=False)
+
+
+
+
+#bar_graph(1, root_samples, root_total_volumes)
+#bar_graph(2, root_samples, stele_total_volumes)
+#bar_graph(3, root_samples, pith_total_volumes)
+
+#plt.show()
 
 
 
